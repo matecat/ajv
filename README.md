@@ -35,31 +35,31 @@ Otherwise you obtain a report like this:
 ```
 php bin/console  ajv:json:ch tests/json/duplicate-ids.json 
 
-+-----------------+-------------------------------------------------------------------------------------------------------+
-| IS A VALID JSON | OK                                                                                                    |
-+-----------------+-------------------------------------------------------------------------------------------------------+
-| ERROR(S)        | TYPE: ids                                                                                             |
-|                 | NODE: 0                                                                                               |
-|                 | ID: 1234                                                                                              |
-|                 | SEGMENT ID: abcdefgh                                                                                  |
-|                 | KEY: lorem.ipsum.1                                                                                    |
-|                 | MESSAGE: id duplicated                                                                                |
-|                 |                                                                                                       |
-|                 | TYPE: ids                                                                                             |
-|                 | NODE: 2                                                                                               |
-|                 | ID: 4567                                                                                              |
-|                 | SEGMENT ID: gdfgdfgdf                                                                                 |
-|                 | KEY: lorem.ipsum.2                                                                                    |
-|                 | MESSAGE: id duplicated                                                                                |
-|                 |                                                                                                       |
-|                 | TYPE: segment_ids                                                                                     |
-|                 | NODE: 1                                                                                               |
-|                 | ID: 7890                                                                                              |
-|                 | SEGMENT ID: gregregreg                                                                                |
-|                 | KEY: lorem.ipsum.3                                                                                    |
-|                 | MESSAGE: segment_id duplicated                                                                        |
-|                 |                                                                                                       |
-+-----------------+-------------------------------------------------------------------------------------------------------+
++-----------------+-----------------------------------------------------------+
+| IS A VALID JSON | OK                                                        |
++-----------------+-----------------------------------------------------------+
+| ERROR(S)        | TYPE: ids                                                 |
+|                 | NODE: 0                                                   |
+|                 | ID: 1234                                                  |
+|                 | SEGMENT ID: abcdefgh                                      |
+|                 | KEY: lorem.ipsum.1                                        |
+|                 | MESSAGE: id duplicated                                    |
+|                 |                                                           |
+|                 | TYPE: ids                                                 |
+|                 | NODE: 2                                                   |
+|                 | ID: 4567                                                  |
+|                 | SEGMENT ID: gdfgdfgdf                                     |
+|                 | KEY: lorem.ipsum.2                                        |
+|                 | MESSAGE: id duplicated                                    |
+|                 |                                                           |
+|                 | TYPE: segment_ids                                         |
+|                 | NODE: 1                                                   |
+|                 | ID: 7890                                                  |
+|                 | SEGMENT ID: gregregreg                                    |
+|                 | KEY: lorem.ipsum.3                                        |
+|                 | MESSAGE: segment_id duplicated                            |
+|                 |                                                           |
++-----------------+-----------------------------------------------------------+
 
                                                                                                                         
  [ERROR] Validation NOT passed.                                                                                         
