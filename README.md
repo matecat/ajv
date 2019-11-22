@@ -15,7 +15,7 @@ php bin/console  ajv:json:check [json-file-path]
 If no error were found then the validation passes:
 
 ```
- php bin/console  ajv:json:ch tests/json/ok.json 
+php bin/console  ajv:json:ch tests/json/ok.json 
 
 Validation report for file tests/json/ok.json
 =============================================
