@@ -1,0 +1,36 @@
+{
+  "name": "matecat/airbnb-json-validator",
+  "type": "library",
+  "description": "A library for validate Airbnb JSON files",
+  "keywords": ["dqf", "client", "php"],
+  "homepage": "https://github.com/matecat/airbnb-json-validator",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/matecat/airbnb-json-validator/issues"
+  },
+  "authors": [
+    {
+      "name": "Mauro Cassani",
+      "email": "maurocassani1978@gmail.com",
+      "homepage": "https://github.com/mauretto78"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Matecat\\AJV\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": { "Matecat\\AJV\\Tests\\": "tests/" }
+  },
+  "require": {
+    "php": ">=7.2",
+    "symfony/console": "^3.4.17 || ^4.1.6",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.7",
+    "phpstan/phpstan": "^0.11.12",
+    "friendsofphp/php-cs-fixer": "^2.15"
+  }
+}

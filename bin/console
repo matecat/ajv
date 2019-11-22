@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+set_time_limit(0);
+require __DIR__.'/../vendor/autoload.php';
+
+// create symfony console app
+$app = new \Symfony\Component\Console\Application('AJV Checker', 'console tool');
+
+// add commands here
+$app->add(new \Matecat\AJV\Console\CheckCommand());
+$app->run();
