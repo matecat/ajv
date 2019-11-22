@@ -23,7 +23,7 @@ Validation report for file tests/json/ok.json
 +-----------------+----+
 | IS A VALID JSON | OK |
 +-----------------+----+
-| ERROR(S)s       |    |
+| ERROR(S)        |    |
 +-----------------+----+
                                                                                                                    
  [OK] Validation passed.                                                                                                
@@ -38,7 +38,7 @@ php bin/console  ajv:json:ch tests/json/duplicate-ids.json
 +-----------------+-------------------------------------------------------------------------------------------------------+
 | IS A VALID JSON | OK                                                                                                    |
 +-----------------+-------------------------------------------------------------------------------------------------------+
-| ERROR(S)s       | TYPE: ids                                                                                             |
+| ERROR(S)        | TYPE: ids                                                                                             |
 |                 | NODE: 0                                                                                               |
 |                 | ID: 1234                                                                                              |
 |                 | SEGMENT ID: abcdefgh                                                                                  |
