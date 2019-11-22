@@ -6,12 +6,11 @@ class TargetValidator implements ValidatorInterface
 {
     public static function validate(array $phrase, int $index): array
     {
-        if ( isset($phrase['target_locales']) ) {
-
+        if (isset($phrase['target_locales'])) {
             $error = null;
 
             // is array??
-            if (false === is_array($phrase['target_locales'])){
+            if (false === is_array($phrase['target_locales'])) {
                 $error = 'Not an array';
             }
 

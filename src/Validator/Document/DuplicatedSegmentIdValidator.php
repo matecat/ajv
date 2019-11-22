@@ -4,12 +4,12 @@ namespace Matecat\AJV\Validator\Document;
 
 class DuplicatedSegmentIdValidator implements ValidatorInterface
 {
-    public static function validate( array $phrases ): array
+    public static function validate(array $phrases): array
     {
         $segmentIds = [];
         $errors = [];
 
-        foreach ($phrases as $phrase){
+        foreach ($phrases as $phrase) {
             $segmentIds[] = $phrase['segment_id'] ?? null;
         }
 

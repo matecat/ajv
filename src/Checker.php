@@ -30,14 +30,14 @@ class Checker
      */
     private $jsonPhrases;
 
-    public function __construct( string $jsonPath)
+    public function __construct(string $jsonPath)
     {
         $this->jsonPath = $jsonPath;
         try {
             $this->jsonContent = file_get_contents($this->jsonPath);
             $this->jsonDecoded = json_decode($this->jsonContent, true);
             $this->jsonPhrases = $this->jsonDecoded['export_phrases'];
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             $this->jsonContent = null;
             $this->jsonDecoded = null;
             $this->jsonPhrases = null;
@@ -56,15 +56,15 @@ class Checker
 
     private function getStatus(): string
     {
-        if($this->jsonContent === null) {
+        if ($this->jsonContent === null) {
             return "File not found";
         }
 
-        if($this->jsonPhrases === null) {
+        if ($this->jsonPhrases === null) {
             return 'No "export_phrases" key';
         }
 
-        if ( !is_object($this->jsonDecoded) && !is_array($this->jsonDecoded) ) {
+        if (!is_object($this->jsonDecoded) && !is_array($this->jsonDecoded)) {
             return "Invalid JSON";
         }
 
@@ -85,26 +85,25 @@ class Checker
         ];
 
         /** @var DocumentValidatorInterface $validator */
-        foreach ($documentValidators as $key => $validator){
+        foreach ($documentValidators as $key => $validator) {
             $validate = $validator::validate($this->jsonPhrases);
 
-            if(count($validate) > 0){
+            if (count($validate) > 0) {
                 $errors[$key] = $validate;
             }
         }
 
         foreach ($this->jsonPhrases as $index => $phrase) {
-
             $phraseValidators = [
                 'keys'   => MissingKeysValidator::class,
                 'target' => TargetValidator::class,
             ];
 
             /** @var PhraseValidatorInterface $validator */
-            foreach ($phraseValidators as $key => $validator){
+            foreach ($phraseValidators as $key => $validator) {
                 $validate = $validator::validate($phrase, $index);
 
-                if(count($validate) > 0){
+                if (count($validate) > 0) {
                     $errors[$key][] = $validate;
                 }
             }

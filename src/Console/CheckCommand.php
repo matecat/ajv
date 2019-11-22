@@ -55,7 +55,7 @@ class CheckCommand extends Command
         $string = '';
 
         foreach ($errors as $key => $errs) {
-            foreach ($errs as $error){
+            foreach ($errs as $error) {
                 $string .= 'TYPE: ' . $key. PHP_EOL;
                 $string .= 'NODE: ' . $error['node']. PHP_EOL;
                 $string .= 'ID: ' . $error['id']. PHP_EOL;
@@ -64,7 +64,7 @@ class CheckCommand extends Command
                 $string .= 'MESSAGE: ' . $error['message']. PHP_EOL;
 
                 $endErrors = end($errors);
-                if($error !== end($endErrors)){
+                if ($error !== end($endErrors)) {
                     $string .= PHP_EOL;
                 }
             }

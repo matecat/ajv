@@ -9,7 +9,7 @@ class DuplicateIdValidator implements ValidatorInterface
         $ids = [];
         $errors = [];
 
-        foreach ($phrases as $phrase){
+        foreach ($phrases as $phrase) {
             $ids[] = $phrase['id'] ?? null;
         }
 
