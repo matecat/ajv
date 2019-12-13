@@ -2,6 +2,7 @@
 namespace Matecat\AJV\Console;
 
 use Matecat\AJV\Checker;
+use Matecat\AJV\Enum\LevelEnum;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableSeparator;
@@ -39,14 +40,26 @@ class CheckCommand extends Command
         $table = new Table($output);
         $table->addRow(['IS A VALID JSON', $report['status']]);
         $table->addRow(new TableSeparator());
-        $table->addRow(['ERROR(S)', $this->formatErrors($report['errors'])]);
+        $table->addRow(['ERROR(S) & WARNING(S)', $this->formatErrors($report['errors'])]);
         $table->render();
         $io->newLine();
 
         if ($this->isValid($report)) {
             $io->success('Validation passed.');
         } else {
-            $io->error('Validation NOT passed.');
+            $levels = [];
+
+            foreach ($report['errors'] as $key => $errs) {
+                foreach ($errs as $error) {
+                    $levels[$error[ 'level' ]][] = $error[ 'node' ];
+                }
+            }
+
+            $countErrs = (isset($levels[LevelEnum::ERROR])) ?  count($levels[LevelEnum::ERROR]) : 0;
+            $countWarn = (isset($levels[LevelEnum::WARNING])) ?  count($levels[LevelEnum::WARNING]) : 0;
+
+            $level = ($countErrs > 0) ? LevelEnum::ERROR : LevelEnum::WARNING;
+            $io->$level('The JSON contains: ' . $countWarn .' warning(s), ' . $countErrs .' error(s)');
         }
     }
 
@@ -56,6 +69,7 @@ class CheckCommand extends Command
 
         foreach ($errors as $key => $errs) {
             foreach ($errs as $error) {
+                $string .= 'LEVEL: ' . $error['level']. PHP_EOL;
                 $string .= 'TYPE: ' . $key. PHP_EOL;
                 $string .= 'NODE: ' . $error['node']. PHP_EOL;
                 $string .= 'ID: ' . $error['id']. PHP_EOL;

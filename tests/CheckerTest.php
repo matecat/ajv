@@ -92,6 +92,20 @@ class CheckerTest extends TestCase
     /**
      * @test
      */
+    public function invalid_target()
+    {
+        $string = __DIR__ . '/json/invalid-target.json';
+
+        $checker = new Checker($string);
+        $report = $checker->report();
+
+        $this->assertEquals($report['status'], "OK");
+        $this->assertCount(1, $report['errors']['target']);
+    }
+
+    /**
+     * @test
+     */
     public function no_errors()
     {
         $string = __DIR__ . '/json/ok.json';

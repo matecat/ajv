@@ -2,6 +2,8 @@
 
 namespace Matecat\AJV\Validator\Document;
 
+use Matecat\AJV\Enum\LevelEnum;
+
 class DuplicatedSegmentIdValidator implements ValidatorInterface
 {
     public static function validate(array $phrases): array
@@ -27,7 +29,8 @@ class DuplicatedSegmentIdValidator implements ValidatorInterface
                         'id'         => $phrase['id'] ?? null,
                         'key'        => $phrase['key'] ?? null,
                         'segment_id' => $phrase['segment_id'] ?? null,
-                        'message'    => 'segment_id duplicated'
+                        'message'    => 'segment_id duplicated',
+                        'level'      => LevelEnum::WARNING
                 ];
             }
         }
