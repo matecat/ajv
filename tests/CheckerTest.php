@@ -78,6 +78,20 @@ class CheckerTest extends TestCase
     /**
      * @test
      */
+    public function duplicates_keys()
+    {
+        $string = __DIR__ . '/json/duplicate-keys.json';
+
+        $checker = new Checker($string);
+        $report = $checker->report();
+
+        $this->assertEquals($report['status'], "OK");
+        $this->assertCount(1, $report['errors']['keys']);
+    }
+
+    /**
+     * @test
+     */
     public function no_errors()
     {
         $string = __DIR__ . '/json/ok.json';

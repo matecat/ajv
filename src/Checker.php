@@ -1,6 +1,7 @@
 <?php
 namespace Matecat\AJV;
 
+use Matecat\AJV\Validator\Document\DuplicatedKeyValidator;
 use Matecat\AJV\Validator\Document\DuplicatedSegmentIdValidator;
 use Matecat\AJV\Validator\Document\ValidatorInterface as DocumentValidatorInterface;
 use Matecat\AJV\Validator\Document\DuplicateIdValidator;
@@ -81,6 +82,7 @@ class Checker
 
         $documentValidators = [
             'ids'         => DuplicateIdValidator::class,
+            'keys'        => DuplicatedKeyValidator::class,
             'segment_ids' => DuplicatedSegmentIdValidator::class,
         ];
 
