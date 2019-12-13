@@ -74,11 +74,13 @@ The library checks for:
 * Missing keys
 * Duplicated `id` keys
 * Duplicated `segment_id` keys
-* Invalid `target` keys
+* Duplicated `key` keys
+* Malformed, invalid or duplicated `target` keys
 
 In case of error, this is the standard payload array:
 
 ```
+LEVEL: <string>
 TYPE: <string>
 NODE: <int>
 ID: <int>
