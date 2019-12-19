@@ -55,7 +55,6 @@ class TargetValidator implements ValidatorInterface
     private static function areValidTargets(array $array = []): array
     {
         $errors = [];
-
         $validTargets = include __DIR__ . '/../../../config/target.php';
 
         foreach ($array as $item) {

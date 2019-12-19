@@ -25,7 +25,9 @@ class MissingKeysValidator implements ValidatorInterface
             "value"
         ];
 
-        if (array_keys($phrase) !== $keys) {
+        $diff = array_diff($keys, array_keys($phrase));
+
+        if ( count($diff) > 0 ) {
             return [
                 'node'       => $index,
                 'id'         => $phrase['id'] ?? null,
